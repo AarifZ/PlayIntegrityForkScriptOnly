@@ -13,11 +13,11 @@ fi
 # Copy any disabled app files to updated module
 if [ -d /data/adb/modules/playintegrityfix/system ]; then
     ui_print "- Restoring disabled ROM apps configuration"
-    cp -arf /data/adb/modules/playintegrityfix/system $MODPATH
+    cp -afL /data/adb/modules/playintegrityfix/system $MODPATH
 fi
 
 # Copy any supported custom files to updated module
-for FILE in custom.app_replace.list custom.pif.json; do
+for FILE in custom.app_replace.list custom.pif.json skipdelprop; do
     if [ -f "/data/adb/modules/playintegrityfix/$FILE" ]; then
         ui_print "- Restoring $FILE"
         cp -af /data/adb/modules/playintegrityfix/$FILE $MODPATH/$FILE
